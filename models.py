@@ -7,6 +7,16 @@ from sqlalchemy.orm import relationship
 from database import Base
 
 
+"""
+pip install alembic
+
+모델 정의 후 'alembic revision --autogenerate' 명령어로 리비전 파일 생성
+이후 'alembic upgrade head' 명령어로 리비전 파일 실행
+
+main.py에 models.Base.metadata.create_all(bind=engine) 코드 추가 시
+alembic 없이 테이블 생성이 가능하나, 이경우 한번 생성된 테이블에 대한 변경관리가 불가
+"""
+
 class Question(Base):
     __tablename__ = "question"
     
